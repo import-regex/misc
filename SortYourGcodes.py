@@ -11,7 +11,7 @@ for indexisinuse in enumerate(reversed(f"{ctypes.cdll.kernel32.GetLogicalDrives(
  if indexisinuse[1] and ctypes.windll.kernel32.GetDriveTypeW(drive_letter) == 2:  #type 2 means removable drive
   drives.append(drive_letter)
   
-print(drives)
+input(f"about to update all .gcode files in the root of {drives}\nEnter any key to continue...")
 for file in [file for drive in drives for file in glob(drive+"*.gcode")]:
  print (f'renaming {file}')
  try:
